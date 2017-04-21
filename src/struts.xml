@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+
+	<package name="default" namespace="/" extends="struts-default,json-default">
+
+		<action name="goIndex">
+			<result>
+				/WEB-INF/pages/index.jsp
+			</result>
+		</action>
+		<action name="login">
+			<result type="redirectAction">
+				goIndex
+			</result>
+		</action>
+		<action name="goPositionAdd">
+			<result>
+				/WEB-INF/pages/position_add.jsp
+			</result>
+		</action>
+		<action name="goBuildingManage">
+			<result>
+				/WEB-INF/pages/building_manage.jsp
+			</result>
+		</action>
+		
+	<!-- UserAction -->
+		
+		<action name="goUserList" class="com.thu.control.action.UserAction"
+			method="goUserList">
+			<result name="success">
+				/WEB-INF/pages/user_list.jsp
+			</result>
+		</action>
+		<action name="getUniUserInfo" class="com.thu.control.action.UserAction"
+			method="getUniUserInfo">
+			<result name="success">
+				/WEB-INF/pages/user_detail.jsp
+			</result>
+		</action>
+		<action name="goUserEdit" class="com.thu.control.action.UserAction"
+			method="goUserEdit">
+			<result name="success">
+				/WEB-INF/pages/user_update.jsp
+			</result>
+		</action>
+		<action name="goUserAdd" class="com.thu.control.action.UserAction"
+			method="goUserAdd">
+			<result name="success">
+				/WEB-INF/pages/user_add.jsp
+			</result>
+		</action>
+		<action name="insertUser" class="com.thu.control.action.UserAction"
+			method="insertUser">
+			<result name="success" type="json">
+			<param name="includeProperties">
+					jsonDataMap\.state,
+					jsonDataMap\.msg
+				</param>
+			</result>
+		</action>
+		<action name="updateUser" class="com.thu.control.action.UserAction"
+			method="updateUser">
+			<result name="success" type="json">
+			<param name="includeProperties">
+					jsonDataMap\.state,
+					jsonDataMap\.msg
+				</param>
+			</result>
+		</action>
+		<action name="deleteUser" class="com.thu.control.action.UserAction"
+			method="deleteUser">
+			<result name="success" type="json">
+			<param name="includeProperties">
+					jsonDataMap\.state,
+					jsonDataMap\.msg
+				</param>
+			</result>
+		</action>
+		<action name="goPositionList" class="com.thu.control.action.UserAction"
+			method="goPositionList">
+			<result name="success">
+				/WEB-INF/pages/position_list.jsp
+			</result>
+		</action>
+	<!-- PositionAction -->	
+		<action name="goPositionUpdate" class="com.thu.control.action.PositionAction" method="goPositionUpdate">
+			<result name="success">
+				/WEB-INF/pages/position_update.jsp
+			</result>
+		</action>
+		<action name="insertPosition" class="com.thu.control.action.PositionAction"
+			method="insertPosition">
+			<result name="success" type="json">
+			<param name="includeProperties">
+					jsonDataMap\.state,
+					jsonDataMap\.msg
+				</param>
+			</result>
+		</action>
+		<action name="updatePosition" class="com.thu.control.action.PositionAction"
+			method="updatePosition">
+			<result name="success" type="json">
+			<param name="includeProperties">
+					jsonDataMap\.state,
+					jsonDataMap\.msg
+				</param>
+			</result>
+		</action>
+		<action name="deletePosition" class="com.thu.control.action.PositionAction"
+			method="deletePosition">
+			<result name="success" type="json">
+			<param name="includeProperties">
+					jsonDataMap\.state,
+					jsonDataMap\.msg,
+					effectList\[\d+\]\.*
+				</param>
+			</result>
+		</action>
+		
+	<!-- BuildingAction -->	
+	<action name="uploadEditBuildingFile" class="com.thu.control.action.BuildingAction"
+			method="uploadEditBuildingFile">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					jsonDataMap\.state,
+					jsonDataMap\.msg
+				</param>
+			</result>
+		</action>
+	<action name="goBuildingList" class="com.thu.control.action.BuildingAction"
+			method="goBuildingList">
+			<result name="success">
+				/WEB-INF/pages/building_list.jsp
+			</result>
+		</action>
+	<action name="goRoomList" class="com.thu.control.action.BuildingAction"
+			method="goRoomList">
+			<result name="success">
+				/WEB-INF/pages/room_list.jsp
+			</result>
+		</action>
+	</package>
+</struts>

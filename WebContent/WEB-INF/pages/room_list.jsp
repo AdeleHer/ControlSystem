@@ -13,8 +13,6 @@
 
 <link href="./theme/global/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <style>
 a:hover {
 	text-decoration: none;
